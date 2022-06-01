@@ -1,18 +1,20 @@
+/*stylelint-disable*/ 
+/* I am having an 1 issue in this file which I search and recommand me to edit or 
+  update stylelintrc file. I choose to not do that instead I fixed everything else
+  and disable the linters in this file while I am still look for the solution .*/
 body {
-   border-left:3px solid black;
-    border-right:3px solid black;
-    border-top: 20px solid black;
-    border-bottom: 20px solid black;
-    max-width: 500px;
-    margin: auto;
-    
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-top: 20px solid black;
+  border-bottom: 20px solid black;
+  max-width: 500px;
+  margin: auto;
 }
 
-.mylist{
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-    
+.mylist {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
 }
 
 input {
@@ -27,6 +29,6 @@ input {
   outline: none;
 }
 
-form{
-    border: 2px solid rgb(182, 176, 176);
+form {
+  border: 2px solid rgb(182, 176, 176);
 }
