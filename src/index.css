@@ -1,0 +1,32 @@
+body {
+   border-left:3px solid black;
+    border-right:3px solid black;
+    border-top: 20px solid black;
+    border-bottom: 20px solid black;
+    max-width: 500px;
+    margin: auto;
+    
+}
+
+.mylist{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background-color: #eee;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+form{
+    border: 2px solid rgb(182, 176, 176);
+}
