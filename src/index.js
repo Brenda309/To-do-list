@@ -1,23 +1,7 @@
 import './index.css';
 
 const form = document.getElementById('form');
-const tasks = [
-  {
-    desc: 'microverse recap',
-    completed: true,
-    index: 0,
-  },
-  {
-    desc: 'reading',
-    completed: false,
-    index: 1,
-  },
-  {
-    desc: 'exercises',
-    completed: false,
-    index: 0,
-  },
-];
+const tasks = [];
 
 for (let i = 0; i < tasks.length; i += 1) {
   const newCheckbox = document.createElement('input');
