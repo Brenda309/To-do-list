@@ -1,8 +1,8 @@
 body {
-  border-left: 3px solid black;
-  border-right: 3px solid black;
-  border-top: 20px solid black;
-  border-bottom: 20px solid black;
+  border-left: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 25px solid black;
+  border-bottom: 25px solid black;
   max-width: 500px;
   margin: auto;
 }
@@ -10,7 +10,6 @@ body {
 .mylist {
   display: flex;
   flex-direction: column;
-  padding: 50px;
 }
 
 input {
@@ -27,4 +26,31 @@ input {
 
 form {
   border: 2px solid rgb(182, 176, 176);
+}
+
+.icon{
+  width: 40px;
+  height: 40px;
+  padding-left: 460px;
+}
+#newLabel{
+  margin: 0;
+}
+.trashIcon{
+  width: 30px;
+  height: 30px;
+  padding-left: 460px;
+}
+#rmv {
+  display: flex;
+}
+.iconEdit{
+  width: 30px;
+  height: 30px;
+  padding-left: 460px;
+}
+
+.clear{
+  padding-left: 180px;
+  padding-right: 204px;
 }
