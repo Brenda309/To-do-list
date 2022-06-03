@@ -83,5 +83,6 @@ const filtered = storage.array.filter((Tasks) => Tasks.description !== descripti
   const stringData = JSON.stringify(filtered);
       localStorage.setItem('Tasks', stringData);
       deleteItem.remove();
+      window.location.reload();
 })
 }
