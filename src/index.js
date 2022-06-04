@@ -3,7 +3,7 @@ import './index.css';
 import Icon from './icon.png';
 import Bin from './bin.png';
 import Edit from './pen.png';
-import { update } from 'lodash';
+// import { update } from 'lodash';
 const addList = document.getElementById('add-list');
 const newList = document.getElementById('newList');
 
@@ -44,35 +44,40 @@ addList.addEventListener('keypress', (e) => {
 
 if (localStorage.Tasks) {
   for (let i = 0; i < JSON.parse(localStorage.Tasks).length; i += 1) {
+    const div = document.createElement('div')
     const newCheckbox = document.createElement('input');
-    const newLabel = document.createElement('label');
-    const myIcon = new Image();
+    const newLabel = document.createElement('input');
     const lineBreak = document.createElement('br');
     const line = document.createElement('hr');
+     const myIcon = new Image();
     const trashIcon = new Image();
-    const EditIcon = new Image();
+    const editIcon = new Image();
     const todo = document.createElement('div');
 
     todo.id = `item${i}`;
     newCheckbox.setAttribute('type', 'checkbox');
     newCheckbox.setAttribute('id', `${i}`);
-    newLabel.setAttribute('for', 'checkbox');
-    newLabel.innerHTML = JSON.parse(localStorage.Tasks)[i].description;
+    newLabel.setAttribute('type', 'text');
+    newLabel.value = JSON.parse(localStorage.Tasks)[i].description;
+    newLabel.className = 'list';
+    newLabel.id = `list${i}`;
     trashIcon.className = 'trashIcon';
-    trashIcon.id = `rmv${i}`
+    trashIcon.id = `rmv${i}`;
     myIcon.className = 'icon';
+    myIcon.id = `icon${i}`;
     myIcon.src = Icon;
     trashIcon.src = Bin;
-    EditIcon.src = Edit;
-    EditIcon.id = `edit${i}`;
-    EditIcon.className = 'iconEdit'
-    newLabel.appendChild(myIcon);
-    newLabel.appendChild(trashIcon);
+    editIcon.src = Edit;
+    editIcon.className = 'iconEdit';
+    div.appendChild(editIcon);
+    div.appendChild(myIcon);
+    div.appendChild(trashIcon);
     todo.appendChild(line);
     todo.appendChild(lineBreak);
     todo.appendChild(newCheckbox);
     todo.appendChild(newLabel);
     newList.appendChild(todo)
+    newList.appendChild(div);
   }
 }
 
@@ -88,8 +93,6 @@ const stringData = JSON.stringify(filtered);
 localStorage.setItem('Tasks', stringData);
 deleteItem.remove();
 window.location.reload();
-     
-    
 
 })
 }
@@ -102,4 +105,13 @@ const stringData = JSON.stringify(storage.array);
     localStorage.setItem('Tasks', stringData);
    }
  updateIndex();
-
+const updtateTask = () => {
+const list = document.getElementsByClassName('list');
+for (let i = 0; i < list.length; i += 1){
+  list[i].addEventListener('change', () => {
+    storage.array[i].description = list[i].value;
+    const stringData = JSON.stringify(storage.array);
+        localStorage.setItem('tasks', stringData);
+  })
+}
+}

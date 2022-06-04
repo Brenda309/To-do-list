@@ -31,23 +31,21 @@ form {
 .icon{
   width: 40px;
   height: 40px;
-  padding-left: 460px;
+  padding-left: 460px; 
 }
-#newLabel{
+/* #newLabel{
   margin: 0;
-}
+} */
 .trashIcon{
-  width: 30px;
-  height: 30px;
-  padding-left: 460px;
+ width: 30px;
+ height: 30px;
+ padding-left: 460px;  
 }
 #rmv {
   display: flex;
 }
 .iconEdit{
-  width: 30px;
-  height: 30px;
-  padding-left: 460px;
+  display: none;
 }
 
 .clear{
