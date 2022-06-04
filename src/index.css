@@ -28,27 +28,30 @@ form {
   border: 2px solid rgb(182, 176, 176);
 }
 
-.icon{
+.icon {
   width: 40px;
   height: 40px;
-  padding-left: 460px; 
+  padding-left: 460px;
 }
+
 /* #newLabel{
   margin: 0;
 } */
-.trashIcon{
- width: 30px;
- height: 30px;
- padding-left: 460px;  
+.trashIcon {
+  width: 30px;
+  height: 30px;
+  padding-left: 460px;
 }
+
 #rmv {
   display: flex;
 }
-.iconEdit{
+
+.iconEdit {
   display: none;
 }
 
-.clear{
+.clear {
   padding-left: 180px;
   padding-right: 204px;
 }
