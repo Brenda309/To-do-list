@@ -36,7 +36,7 @@ for (let i = 0; i < storage.array.length; i += 1) {
     window.location.reload();
   });
 }
-
+// update index
 const updateIndex = () => {
   storage.array.forEach((todos, index) => {
     todos.index = index + 1;
@@ -46,6 +46,7 @@ const updateIndex = () => {
 };
 updateIndex();
 
+// Edit and update tasks in the localStorage;
 const updateTask = () => {
   const list = document.getElementsByClassName('list');
   for (let i = 0; i < list.length; i += 1) {
@@ -58,6 +59,7 @@ const updateTask = () => {
   }
 };
 updateTask();
+
 
 for (let i = 0; i < storage.array.length; i += 1) {
   const checkbox = document.getElementById(`box${i}`);
@@ -88,4 +90,6 @@ clearm.addEventListener('click', () => {
   localStorage.setItem('Tasks', stringData);
   updateTask();
   updateIndex();
-});
+})
+
+export default storage;
