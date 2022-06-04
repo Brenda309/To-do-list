@@ -3,6 +3,7 @@ import './index.css';
 import Icon from './icon.png';
 import Bin from './bin.png';
 import Edit from './pen.png';
+import { update } from 'lodash';
 // import { update } from 'lodash';
 const addList = document.getElementById('add-list');
 const newList = document.getElementById('newList');
@@ -105,13 +106,15 @@ const stringData = JSON.stringify(storage.array);
     localStorage.setItem('Tasks', stringData);
    }
  updateIndex();
-const updtateTask = () => {
+const updateTask = () => {
 const list = document.getElementsByClassName('list');
 for (let i = 0; i < list.length; i += 1){
   list[i].addEventListener('change', () => {
     storage.array[i].description = list[i].value;
     const stringData = JSON.stringify(storage.array);
-        localStorage.setItem('tasks', stringData);
+        localStorage.setItem('tasks', stringData)
+        window.location.reload();
   })
 }
 }
+updateTask();
