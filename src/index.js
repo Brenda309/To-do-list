@@ -90,6 +90,5 @@ clearm.addEventListener('click', () => {
   localStorage.setItem('Tasks', stringData);
   updateTask();
   updateIndex();
-})
-
+});
 export default storage;
