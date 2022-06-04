@@ -1,6 +1,8 @@
 import './index.css';
 import { Tasks, addList, display } from './functions.js';
 import Todos from './class.js';
+import Enter from './enter.png';
+import Refresh from './refresh.png';
 
 const storage = new Tasks();
 
@@ -86,6 +88,18 @@ clearm.addEventListener('click', () => {
     listedItem.remove();
   }
   localStorage.setItem('Tasks', stringData);
+  const rmv = document.querySelector('.trashIcon');
+  rmv.style.display = 'none';
   updateTask();
   updateIndex();
 });
+const refresh = document.getElementById('header');
+const form = document.getElementById('list');
+const rotate = new Image();
+const inter = new Image();
+inter.src = Enter;
+inter.className = 'enter';
+rotate.src = Refresh;
+rotate.className = 'rotate';
+form.appendChild(inter);
+refresh.appendChild(rotate);

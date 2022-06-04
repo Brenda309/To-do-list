@@ -1,8 +1,8 @@
 body {
-  border-left: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 25px solid black;
-  border-bottom: 25px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
   max-width: 500px;
   margin: auto;
 }
@@ -52,4 +52,16 @@ form {
 #clear {
   padding-left: 180px;
   padding-right: 204px;
+}
+
+.rotate {
+  width: 20px;
+  height: 20px;
+  padding-left: 460px;
+}
+
+.enter {
+  width: 20px;
+  height: 20px;
+  padding-left: 460px;
 }
