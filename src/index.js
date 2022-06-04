@@ -59,8 +59,6 @@ const updateTask = () => {
   }
 };
 updateTask();
-
-
 for (let i = 0; i < storage.array.length; i += 1) {
   const checkbox = document.getElementById(`box${i}`);
   checkbox.addEventListener('change', () => {
@@ -91,4 +89,3 @@ clearm.addEventListener('click', () => {
   updateTask();
   updateIndex();
 });
-export default storage;
