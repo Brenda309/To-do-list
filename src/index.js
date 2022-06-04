@@ -3,6 +3,7 @@ import './index.css';
 import Icon from './icon.png';
 import Bin from './bin.png';
 import Edit from './pen.png';
+import { update } from 'lodash';
 const addList = document.getElementById('add-list');
 const newList = document.getElementById('newList');
 
@@ -26,7 +27,6 @@ const storage = new Tasks();
   if (localStorage.Tasks) {
     storage.array = JSON.parse(localStorage.Tasks);
   }
- 
 
 addList.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
@@ -50,6 +50,7 @@ if (localStorage.Tasks) {
     const lineBreak = document.createElement('br');
     const line = document.createElement('hr');
     const trashIcon = new Image();
+    const EditIcon = new Image();
     const todo = document.createElement('div');
 
     todo.id = `item${i}`;
@@ -62,6 +63,9 @@ if (localStorage.Tasks) {
     myIcon.className = 'icon';
     myIcon.src = Icon;
     trashIcon.src = Bin;
+    EditIcon.src = Edit;
+    EditIcon.id = `edit${i}`;
+    EditIcon.className = 'iconEdit'
     newLabel.appendChild(myIcon);
     newLabel.appendChild(trashIcon);
     todo.appendChild(line);
@@ -80,9 +84,22 @@ const descriptionName =  storage.array[i].description;
 const deleteItem = document.getElementById(`item${i}`);
 rmv.addEventListener('click', () => {
 const filtered = storage.array.filter((Tasks) => Tasks.description !== descriptionName);
-  const stringData = JSON.stringify(filtered);
-      localStorage.setItem('Tasks', stringData);
-      deleteItem.remove();
-      window.location.reload();
+const stringData = JSON.stringify(filtered);
+localStorage.setItem('Tasks', stringData);
+deleteItem.remove();
+window.location.reload();
+     
+    
+
 })
 }
+
+ const updateIndex = () => {
+  storage.array.forEach((todos, index) => {
+todos.index = index + 1;
+  })
+const stringData = JSON.stringify(storage.array);
+    localStorage.setItem('Tasks', stringData);
+   }
+ updateIndex();
+
