@@ -1,28 +1,12 @@
 /* eslint-disable*/
 import './index.css';
-// import display from './functions.js';
-import{display , updateIndex, updateTask} from './functions.js'
+import {Tasks, addList,display} from './functions';
+import Todos from './class.js';
 import { update } from 'lodash';
 // import { update } from 'lodash';
-const addList = document.getElementById('add-list');
-const newList = document.getElementById('newList');
 
-class Tasks {
-  constructor() {
-    this.array = [];
-  }
-}
-
-class Todos {
-  constructor (description, complete, index) {
-  this.description = description;
-  this.complete = complete;
-  this.index = index;
-}
-}
 
 const storage = new Tasks();
-
 
   if (localStorage.Tasks) {
     storage.array = JSON.parse(localStorage.Tasks);
@@ -58,7 +42,25 @@ window.location.reload();
 
 })
 }
-//update index
+
+ const updateIndex = () => {
+  storage.array.forEach((todos, index) => {
+todos.index = index + 1;
+  })
+const stringData = JSON.stringify(storage.array);
+    localStorage.setItem('Tasks', stringData);
+   }
  updateIndex();
-//update tasks
+ 
+const updateTask = () => {
+const list = document.getElementsByClassName('list');
+for (let i = 0; i < list.length; i += 1){
+  list[i].addEventListener('change', () => {
+    storage.array[i].description = list[i].value;
+    const stringData = JSON.stringify(storage.array);
+        localStorage.setItem('tasks', stringData)
+        window.location.reload();
+  })
+}
+}
 updateTask();

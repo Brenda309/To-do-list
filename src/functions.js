@@ -2,7 +2,13 @@
 import Icon from './icon.png';
 import Bin from './bin.png';
 import Edit from './pen.png';
-
+const addList = document.getElementById('add-list');
+const newList = document.getElementById('newList');
+ class Tasks {
+  constructor() {
+    this.array = [];
+  }
+}
 
 const display = () => {
 if (localStorage.Tasks) {
@@ -44,25 +50,4 @@ if (localStorage.Tasks) {
   }
 }
 }
-
- const updateIndex = () => {
-  storage.array.forEach((todos, index) => {
-todos.index = index + 1;
-  })
-const stringData = JSON.stringify(storage.array);
-    localStorage.setItem('Tasks', stringData);
-   }
- updateIndex();
-const updateTask = () => {
-const list = document.getElementsByClassName('list');
-for (let i = 0; i < list.length; i += 1){
-  list[i].addEventListener('change', () => {
-    storage.array[i].description = list[i].value;
-    const stringData = JSON.stringify(storage.array);
-        localStorage.setItem('tasks', stringData)
-        window.location.reload();
-  })
-}
-}
-updateTask();
-export {display , updateIndex, updateTask};
+export {Tasks, addList, display};
