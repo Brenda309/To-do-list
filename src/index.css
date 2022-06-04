@@ -32,11 +32,9 @@ form {
   width: 40px;
   height: 40px;
   padding-left: 460px;
+  display: none;
 }
 
-/* #newLabel{
-  margin: 0;
-} */
 .trashIcon {
   width: 30px;
   height: 30px;
@@ -51,7 +49,7 @@ form {
   display: none;
 }
 
-.clear {
+#clear {
   padding-left: 180px;
   padding-right: 204px;
 }

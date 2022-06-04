@@ -52,9 +52,70 @@ const updateTask = () => {
     list[i].addEventListener('change', () => {
       storage.array[i].description = list[i].value;
       const stringData = JSON.stringify(storage.array);
-      localStorage.setItem('tasks', stringData);
+      localStorage.setItem('Tasks', stringData);
       window.location.reload();
     });
   }
 };
 updateTask();
+
+// for (let i = 0; i < storage.array.length; i += 1) {
+//   document.getElementById(`box${i}`).addEventListener('change', () => {
+//     if (storage.array[i].complete === false) {
+//       storage.array[i].complete = true;
+//       const stringData = JSON.stringify(storage.array);
+//       localStorage.setItem('Tasks', stringData);
+//       const list = document.getElementById(`list${i}`);
+//       list.style.textDecoration = 'line-through';
+//     } else if (storage.array[i].complete === true) {
+//       storage.array[i].completed = false;
+//       const stringData = JSON.stringify(storage.array);
+//       localStorage.setItem('Tasks', stringData);
+//       const lists = document.getElementById(`list${i}`);
+//       lists.style.textDecoration = 'none';
+//     }
+//   });
+// }
+// const clearm = document.getElementById('clear');
+// clearm.addEventListener('click', () => {
+//   const filtered = storage.array.filter((items) => items.completed === false);
+//   const stringData = JSON.stringify(filtered);
+//   for (let i = 0; i < storage.array.length; i += 1) {
+//     const listedItem = document.getElementById(`item${i}`);
+//     listedItem.remove();
+//   }
+//   localStorage.setItem('Tasks', stringData);
+//   // updateTask();
+//   // updateIndex();
+// });
+
+for (let i = 0; i < storage.array.length; i += 1) {
+  const checkbox = document.getElementById(`box${i}`);
+  checkbox.addEventListener('change', () => {
+    if (storage.array[i].complete === false) {
+      storage.array[i].complete = true;
+      const stringData = JSON.stringify(storage.array);
+      localStorage.setItem('Tasks', stringData);
+      const list = document.getElementById(`list${i}`);
+      list.style.textDecoration = 'line-through';
+    } else if (storage.array[i].complete === true) {
+      storage.array[i].completed = false;
+      const stringData = JSON.stringify(storage.array);
+      localStorage.setItem('Tasks', stringData);
+      const lists = document.getElementById(`list${i}`);
+      lists.style.textDecoration = 'none';
+    }
+  });
+}
+const clearm = document.getElementById('clear');
+clearm.addEventListener('click', () => {
+  const filtered = storage.array.filter((items) => items.completed === false);
+  const stringData = JSON.stringify(filtered);
+  for (let i = 0; i < storage.array.length; i += 1) {
+    const listedItem = document.getElementById(`item${i}`);
+    listedItem.remove();
+  }
+  localStorage.setItem('Tasks', stringData);
+  // updateTask();
+  // updateIndex();
+});

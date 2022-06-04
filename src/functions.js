@@ -1,6 +1,5 @@
 import Icon from './icon.png';
 import Bin from './bin.png';
-import Edit from './pen.png';
 
 const addList = document.getElementById('add-list');
 const newList = document.getElementById('newList');
@@ -25,7 +24,7 @@ const display = () => {
 
       todo.id = `item${i}`;
       newCheckbox.setAttribute('type', 'checkbox');
-      newCheckbox.setAttribute('id', `${i}`);
+      newCheckbox.setAttribute('id', `box${i}`);
       newLabel.setAttribute('type', 'text');
       newLabel.value = JSON.parse(localStorage.Tasks)[i].description;
       newLabel.className = 'list';
@@ -36,8 +35,6 @@ const display = () => {
       myIcon.id = `icon${i}`;
       myIcon.src = Icon;
       trashIcon.src = Bin;
-      editIcon.src = Edit;
-      editIcon.className = 'iconEdit';
       div.appendChild(editIcon);
       div.appendChild(myIcon);
       div.appendChild(trashIcon);
