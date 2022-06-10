@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "webpack --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --env=jsdom --watchAll --verbose --coverage",
     "start": "webpack serve --open",
     "build": "webpack"
   },
@@ -21,14 +22,19 @@
   },
   "homepage": "https://github.com/Brenda309/To-do-list#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.1"
   },
   "dependencies": {
+    "barbel": "0.0.9",
+    "canvas": "^2.9.1",
     "lodash": "^4.17.21"
   }
 }

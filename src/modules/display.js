@@ -4,7 +4,7 @@ import Bin from '../bin.png';
 const addList = document.getElementById('add-list');
 const newList = document.getElementById('newList');
 
-class Tasks {
+export default class Tasks {
   constructor() {
     this.array = [];
   }
@@ -129,7 +129,6 @@ const allComplete = () => {
   });
 };
 export {
-  Tasks,
   addList,
   display,
   remove,
