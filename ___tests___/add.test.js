@@ -1,4 +1,5 @@
 import Tasks from '../src/modules/display.js';
+import { addItem } from '../src/index.js';
 
 const todo = new Tasks();
 todo.array = [
@@ -17,24 +18,31 @@ todo.array = [
     completed: false,
     index: '3',
   }];
-document.body.innerHTML = '<section class= "todo">'
-  + ' <div id="mylist" class="mylist">'
-  + '  <h1 id = "header">Today\'s To Do</h1>'
-  + ' <form id="list">'
-  + ' <input type="text" name="todo" id="add-list" placeholder="Add to your list...">'
-  + '  </form> '
-  + ' <hr> '
-  + '   </div> '
-  + ' <div id = "newList"></div>'
-  + ' <button id="clear">clear all completed</button>'
-  + '</section>';
+describe('Add function', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+    <div id="mylist" class="mylist">
+      <form id="list">
+        <input type="text" name="todo" class="add" id="add-list" placeholder="Add to your list...">
+      </form>
+    </div>
+    <div id = 'newList'></div>`;
 
-describe('Add items', () => {
-  test('Display items stored in localStorage', () => {
-    /* eslint-disable */
-    document.body.innerHTML;
-    todos.display();
-    const items = document.getElementsByClassName('list');
-    expect(items.length).toBe(3);
+    localStorage.clear();
+    jest.clearAllMocks();
+    localStorage.setItem.mockClear();
+  });
+
+  test('Add task to the the localStorage', () => {
+    const inputForm = document.querySelector('#add-list');
+    const event = {
+      target: document.querySelector('.#add-list'),
+    };
+
+    expect(JSON.parse(localStorage.getItem('Tasks'))).toBeNull();
+
+    
+    addItem(event);
+    expect(JSON.parse(localStorage.getItem('Tasks')).length).toBe(1);
   });
 });

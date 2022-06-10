@@ -16,6 +16,21 @@ const storeData = () => {
     storage.array = JSON.parse(localStorage.Tasks);
   }
 };
+
+export const addItem = (e) => {
+  if (e.target.classList.contains('add')) {
+    const newTasks = new Todos();
+    newTasks.description = addList.value;
+    newTasks.complete = false;
+    newTasks.index = `${storage.array.length + 1}`;
+    storage.array.push(newTasks);
+    newTasks.value = ' ';
+    const stringData = JSON.stringify(storage.array);
+    localStorage.setItem('Tasks', stringData);
+    window.location.reload();
+  }
+}
+
 const display = () => {
   if (localStorage.Tasks) {
     for (let i = 0; i < JSON.parse(localStorage.Tasks).length; i += 1) {

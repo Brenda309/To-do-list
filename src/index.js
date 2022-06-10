@@ -18,8 +18,11 @@ import Todos from './modules/classObj.js';
 storeData();
 // add to local storage
 
-addList.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
+const myForm = document.getElementById('list');
+myForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const newInput = document.querySelector('#list input');
+  if (newInput !== '') {
     const newTasks = new Todos();
     newTasks.description = addList.value;
     newTasks.complete = false;
